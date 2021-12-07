@@ -1,0 +1,47 @@
+.demo .wrap {
+	table-layout: fixed;
+	word-wrap: break-word;
+	word-break: normal;
+	overflow: hidden;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+	height: 50%;
+}
+
+
+.noMargin {
+  margin: 80px;
+}
+
+.one {
+	border: #607d8b;
+	border: 3px;
+	width: 30%;
+	height: 150px;
+	margin-left: 250px;
+}
+
+.two {
+
+	border: #607d8b;
+	border: 3px;
+	width: 70%;
+	height: 300px;
+}
+
+.three {
+	border: #607d8b;
+	border: 3px;
+	width: 60%;
+	height: 500px;
+}
+
+.four {
+	border: #607d8b;
+	border: 3px;
+	width: 20%;
+	height: 200px;
+}

@@ -28,3 +28,19 @@ def read_data(name: str, return_df: bool = False, filter_condition: dict = None)
         return pd.DataFrame(data), count
     return data, count
 
+
+def Attributes_flat(Attributes: dict, ID: dict = None):
+    result = {}
+    if Attributes is None:
+        return result
+    if ID is not None:
+        result.update(ID)
+    for key, value in Attributes.items():
+        if type(value) is str and value[0] == '{':
+            ldict = {}
+            exec("dict_value = {}".format(value), globals(), ldict)
+            dict_value = ldict['dict_value']
+            result.update({key+'.'+second_key: second_value for second_key, second_value in Attributes_flat(dict_value).items()})
+        else:
+            result.update({key: value})
+    return result

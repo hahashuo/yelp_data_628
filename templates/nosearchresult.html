@@ -1,15 +1,40 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{#<h1>Sorry, there is no business matching your search. Please revise your spelling or change another words</h1>#}
+{#    <form class="navbar-form navbar-left" action="{{ url_for('search') }}" method="GET" >#}
+{#            <h2 class="form-heading text-center" >One more search</h2>#}
+{#        <input type="text" class="form-control" name="keyword" placeholder="Keywords">#}
+{#         <button type="submit" class="btn btn-lg btn-primary btn-block">search</button>#}
+{#      </form>#}
+{#</body>#}
+{#</html>#}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../static/css/noresult.css">
 </head>
 <body>
-<h1>Sorry, there is no business matching your search. Please revise your spelling or change another words</h1>
-    <form class="navbar-form navbar-left" action="{{ url_for('search') }}" method="GET" >
-            <h2 class="form-heading text-center" >One more search</h2>
-        <input type="text" class="form-control" name="keyword" placeholder="Keywords">
-         <button type="submit" class="btn btn-lg btn-primary btn-block">search</button>
-      </form>
+    <section class="notFound">
+        <div class="img">
+        <img src="https://assets.codepen.io/5647096/backToTheHomepage.png" alt="Back to the Homepage"/>
+        <img src="https://assets.codepen.io/5647096/Delorean.png" alt="El Delorean, El Doc y Marti McFly"/>
+        </div>
+        <div class="text">
+        <h1>Sorry</h1>
+        <h2>Result NOT FOUND</h2>
+        <h3>BACK TO HOME?</h3>
+        <a class="yes" href="/">YES</a>
+        <a href="">NO</a>
+        </div>
+    </section>
 </body>
 </html>
+

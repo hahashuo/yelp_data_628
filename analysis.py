@@ -1,15 +1,11 @@
-from os import listdir
-from os.path import isfile, join
-import json
-import csv
-import pandas as pd
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 import re
-from wordcloud import WordCloud
 import nltk
 from nltk.tokenize import TweetTokenizer
-from nltk.tokenize import word_tokenize
+import math
+from utils import Attributes_flat
+
 
 class WordSegregator():
     def __init__(self, only_nouns=False):
@@ -106,3 +102,32 @@ class TfIdfCalculator(BaseEstimator, TransformerMixin):
             tf_idf_matrix[sent1] = tf_idf_table
 
         return tf_idf_matrix
+
+
+def first_text(business):
+    text = ""
+    if business.stars > 4.2:
+        text = "Great! Peoplr are unstinting in their praise. But it's not time to pop the champagne. Some guests are complaining about such kind of things."
+    elif business.stars > 3.2:
+        text = "Mmmm....Your bussiness are in good condition. But you still need to look carefully at guest's reviews. Let's see why some have criticisms on this business."
+    else:
+        text = "If you don't want to close your business tomorrow, you must look carefully on the following result and make some changes now! See how much they are complaining about your business"
+    return text
+
+
+def second_text(business):
+    text = "Besides, you can try to "
+    count = 0
+    attributes = Attributes_flat(business.attributes)
+    if not attributes.get('GoodForKids', False):
+        text += "improve you facility to make it better for kids, "
+        count = 1
+    if not attributes.get('ByAppointmentOnly', False):
+        text += "open your seats to walk-in customers, "
+        count = 1
+    if not attributes.get('BusinessParking.street', False):
+        text += "get some parking lot on the streets. "
+        count = 1
+    if count == 0:
+        return ""
+    return text + "That will improve your customer's rating."

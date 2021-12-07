@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <link rel="stylesheet" href="../static/css/report.css">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .div1{
+            margin:0 auto;
+            width:1000px;
+            padding: 0;
+            font-size: larger;
+        }
+        body{
+            background-image: url("../static/img/report.jpg");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; font-size: xxx-large; color: blue"> You business report</h1>
+    <div class="row noMargin">
+      <div class="one" style="font-size: x-large">
+        <div class="demo" style="text-align: center">
+            <p>{{ first_text }}</p>
+        </div>
+      </div>
+      <div class="two">
+        <img src=wordcloud.svg?star=1 border=0 style="width: 500px;margin: 0 auto; margin-right: 100px">
+      </div>
+    </div>
+    <div class="row noMargin">
+      <div class="three">
+        <img src="word_score.svg" style="width: 700px;line-height: 20px; margin-left: 200px">
+      </div>
+      <div class="four" style="font-size: x-large">
+        <p> ALso, some important factors affect your business. Here are how often they showed up in ratings of different stars.</p>
+          <p>{{ second_text }}</p>
+    </div>
+      </div>
+    </div>
+
+</body>
+</html>
