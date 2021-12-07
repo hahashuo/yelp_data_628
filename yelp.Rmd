@@ -1,0 +1,146 @@
+---
+title: "yelp"
+author: "Bowen Tian"
+date: "12/4/2021"
+output: html_document
+---
+
+```{r}
+data<-read.csv("wedding.csv")
+data<-data[,-c(1,2,3)]
+```
+
+```{r}
+Y<-data$star
+P<-c()
+T<-c()
+for (i in 2:ncol(data)) {
+  Y1<-Y[which(data[,i]=='True')]
+  Y2<-Y[which(data[,i]=='False')]
+if(length(Y1)>1 & length(Y2)>1 & i!=56){
+  test<-t.test(Y1,Y2,alternative= "greater")
+  P[i]<-test$p.value
+  T[i]<-test$statistic
+}
+  else{
+    P[i]<-NA
+    T[i]<-NA
+  }
+}
+```
+
+
+```{r}
+pvalue<-read.csv("pvalue.csv")
+pvalue[,which(P<0.05)]
+a<-list()
+for (i in 2:ncol(data)) {
+  a[[i]]<-table(data[,i])
+}
+#a
+c(12,18,19,34,44,70)
+```
+
+```{r}
+#c(12,18,19,34,44,70)
+data[,c(12,19,34,44)]
+a[c(12,19,34,44)]
+```
+
+```{r}
+P0<-list()
+for (i in c(12,19,34,44)) {
+  Y0<-Y[which(data[,i]!='')]
+  X0<-data[,i][which(data[,i]!='')]
+ print(summary(aov(Y0~X0)))
+  
+}
+
+P0
+```
+
+```{r}
+for (i in 1:nrow(data)) {
+  if(data[i,12]=="'free'"){
+    data[i,12]<-"u'free'"
+  }
+}
+for (i in 1:nrow(data)) {
+  if(data[i,12]=="'no'"){
+    data[i,12]<-"u'no'"
+  }
+}
+for (i in 1:nrow(data)) {
+  if(data[i,12]=='None'){
+    data[i,12]<-''
+  }
+}
+Y12<-Y[which(data[,12]!='')]
+  X12<-data[,12][which(data[,12]!='')]
+summary(aov(Y12~X12))
+```
+
+```{r}
+table(data[,19])
+```
+```{r}
+for (i in 1:nrow(data)) {
+  if(data[i,19]=="'full_bar'"){
+    data[i,19]<-"u'full_bar'"
+  }
+}
+for (i in 1:nrow(data)) {
+  if(data[i,19]=="'beer_and_wine'"){
+    data[i,19]<-"u'beer_and_wine'"
+  }
+}
+for (i in 1:nrow(data)) {
+  if(data[i,19]=='None'){
+    data[i,19]<-"u'none'"
+  }
+}
+for (i in 1:nrow(data)) {
+  if(data[i,19]=="'none'"){
+    data[i,19]="u'none'"
+  }
+}
+
+Y19<-Y[which(data[,19]!='')]
+  X19<-data[,19][which(data[,19]!='')]
+summary(aov(Y19~X19))
+table(data[,19])
+```
+
+```{r}
+for (i in 1:nrow(data)) {
+  if(data[i,34]=="'casual'"){
+    data[i,34]<-"u'casual'"
+  }
+}
+for (i in 1:nrow(data)) {
+  if(data[i,34]=="'dressy'"){
+    data[i,34]<-"u'dressy'"
+  }
+}
+Y34<-Y[which(data[,34]!='')]
+  X34<-data[,34][which(data[,34]!='')]
+summary(aov(Y34~X34))
+```
+
+```{r}
+for (i in 1:nrow(data)) {
+  if(data[i,44]=="'average'"){
+    data[i,44]<-"u'average'"
+  }
+}
+for (i in 1:nrow(data)) {
+  if(data[i,44]=="'quiet'"){
+    data[i,44]<-"u'quiet'"
+  }
+}
+
+Y44<-Y[which(data[,44]!='')]
+  X44<-data[,44][which(data[,44]!='')]
+summary(aov(Y44~X44))
+```
+
