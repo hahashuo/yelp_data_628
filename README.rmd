@@ -1,4 +1,4 @@
-**This is repo for STAT605 Mod3 Group4.**
+# This is repo for STAT605 Mod3 Group4 
 
 In the code folder, we have our data preview and data exploration code.
 
