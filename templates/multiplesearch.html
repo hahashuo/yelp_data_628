@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h2>Sorry, we found multiple results for your search. Please make your keywords more specific.</h2>
+    </div>
+    {% for table in tables %}
+                {{titles[loop.index]}}
+                {{ table|safe }}
+    {% endfor %}
+    <form class="navbar-form navbar-left" action="{{ url_for('search') }}" method="GET" >
+            <h2 class="form-heading text-center" >One more search</h2>
+        <input type="text" class="form-control" name="keyword" placeholder="Keywords">
+         <button type="submit" class="btn btn-lg btn-primary btn-block">search</button>
+      </form>
+</body>
+</html>

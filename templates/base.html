@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>base</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/css/base.css">
+    <style>
+        body {
+    background-image: url("../static/img/yelp.png");
+    background-size: cover;
+}
+    </style>
+</head>
+<body>
+        <div class="main">
+        <form class="navbar-form" action="{{ url_for('search') }}" method="GET" >
+                <h2 class="form-heading text-center" >Looking for professional advice on you management!</h2>
+            <input type="text" class="form-control" name="keyword" placeholder="Keywords">
+             <button type="submit" class="btn btn-lg btn-primary btn-block">search</button>
+          </form>
+        </div>
+
+</body>
+</html>
+
