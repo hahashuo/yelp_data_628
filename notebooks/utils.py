@@ -5,7 +5,7 @@ import csv
 import pandas as pd
 import numpy as np
 
-DATA_PATH = "yelp_dataset/"
+DATA_PATH = "../yelp_dataset/"
 
 
 def read_data(name: str, return_df: bool = False, filter_condition: dict = None):

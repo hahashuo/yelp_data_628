@@ -1,8 +1,8 @@
 import pandas as pd
-from flask import Flask, render_template, request, redirect, session, Response
-from utils import read_data
+from flask import Flask, render_template, request, session, Response
+from notebooks.utils import read_data
 from analysis import TfIdfCalculator, WordSegregator
-from plots import wordcloud_by_freq
+from notebooks.plots import wordcloud_by_freq
 from io import BytesIO
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
