@@ -1,1 +1,1 @@
-The data is too big to be put on github. A description of dataset could be find here
+The data is too big to be put on github. A description of dataset could be find [here](https://www.yelp.com/dataset/documentation/main)
