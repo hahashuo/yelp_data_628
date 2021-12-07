@@ -1,5 +1,4 @@
 import numpy as np
-from sklearn.base import BaseEstimator, TransformerMixin
 import re
 import nltk
 from nltk.tokenize import TweetTokenizer
@@ -26,7 +25,7 @@ class WordSegregator():
         return filtered_words
 
 
-class TfIdfCalculator(BaseEstimator, TransformerMixin):
+class TfIdfCalculator():
     def __init__(self):
         return
 
