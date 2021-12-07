@@ -6,19 +6,10 @@ import pandas as pd
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 import re
-from PIL import Image
-import matplotlib.font_manager as fm
-from wordcloud import WordCloud,ImageColorGenerator
-from snownlp import SnowNLP
+from wordcloud import WordCloud
 import nltk
-from nltk.stem.snowball import SnowballStemmer
 from nltk.tokenize import TweetTokenizer
 from nltk.tokenize import word_tokenize
-import seaborn as sns
-import math
-from googletrans import Translator
-from nltk.corpus import wordnet as wn
-
 
 class WordSegregator():
     def __init__(self, only_nouns=False):
